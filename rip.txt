@@ -1,0 +1,210 @@
+    <window name="cdripper">
+
+        <!-- Labels -->
+
+        <textarea name="quality_label">
+            <area>15,27,170,30</area>
+            <font>basemedium</font>
+            <value>Quality:</value>
+            <align>right</align>
+        </textarea>
+
+        <textarea name="artist_label" from="quality_label">
+            <position>15,80</position>
+            <value>Artist:</value>
+        </textarea>
+
+        <textarea name="album_label" from="quality_label">
+            <position>15,130</position>
+            <value>Album:</value>
+        </textarea>
+
+        <textarea name="genre_text" from="quality_label">
+            <position>15,180</position>
+            <value>Genre:</value>
+        </textarea>
+
+        <textarea name="comp_label" from="quality_label">
+            <position>15,240</position>
+            <value>Multi-Artist:</value>
+        </textarea>
+
+        <textarea name="year_label" from="quality_label">
+            <area>235,240,120,30</area>
+            <value>Year:</value>
+        </textarea>
+
+        <!-- edits -->
+
+        <buttonlist name="quality" from="baseselector">
+            <position>195,20</position>
+        </buttonlist>
+
+        <textedit name="artist" from="basetextedit">
+            <position>195,65</position>
+        </textedit>
+
+        <button name="searchartist" from="basesearchbutton">
+            <position>580,70</position>
+        </button>
+
+        <textedit name="album" from="basetextedit">
+            <position>195,120</position>
+        </textedit>
+
+        <button name="searchalbum" from="basesearchbutton">
+            <position>580,125</position>
+        </button>
+
+        <textedit name="genre" from="basetextedit">
+            <position>195,175</position>
+        </textedit>
+
+        <button name="searchgenre" from="basesearchbutton">
+            <position>580,180</position>
+        </button>
+
+        <checkbox name="compilation" from="basecheckbox">
+            <position>195,240</position>
+        </checkbox>
+
+        <button name="switch" from="basebutton">
+            <position>270,235</position>
+            <value>Switch Titles</value>
+        </button>
+
+        <textedit name="year" from="basetextedit">
+            <position>370,230</position>
+        </textedit>
+
+        <textarea name="track_label" from="basetextarea">
+            <area>50,275,50,30</area>
+            <value>Track</value>
+            <align>allcenter</align>
+        </textarea>
+
+        <textarea name="title_label" from="track_label">
+            <area>-7,275,300,30</area>
+            <value>Title</value>
+        </textarea>
+
+        <textarea name="list_artist_label" from="track_label">
+            <area>350,275,220,30</area>
+            <value>Artist</value>
+        </textarea>
+
+        <textarea name="length_label" from="track_label">
+            <area>660,275,100,30</area>
+            <value>Length</value>
+        </textarea>
+
+        <imagetype name="image">
+            <area>25,295,750,280</area>
+            <filename>trans-cr-background.png</filename>
+        </imagetype>
+
+        <buttonlist name="tracks" from="basebuttonlist">
+            <area>40,307,710,245</area>
+            <buttonarea>0,0,710,230</buttonarea>
+            <statetype name="buttonitem">
+                <state name="active">
+                    <statetype name="buttoncheck">
+                        <position>5,5</position>
+                    </statetype>
+                    <textarea name="track" from="buttontext">
+                        <area>30,0,45,30</area>
+                    </textarea>
+                    <textarea name="title" from="track">
+                        <area>80,0,315,30</area>
+                    </textarea>
+                    <textarea name="artist" from="track">
+                        <area>395,0,220,30</area>
+                    </textarea>
+                    <textarea name="length" from="track">
+                        <area>620,0,90,30</area>
+                        <align>center</align>
+                    </textarea>
+                </state>
+                <state name="selected" from="active">
+                    <imagetype name="buttonbackground">
+                        <gradient start="#52CA38" end="#349838" alpha="255" />
+                    </imagetype>
+                </state>
+                <state name="inactive" from="active" />
+            </statetype>
+        </buttonlist>
+
+        <!-- Buttons -->
+
+        <button name="scan" from="basebutton">
+            <position>220,545</position>
+            <value>Scan CD</value>
+        </button>
+
+        <button name="rip" from="basebutton">
+            <position>450,545</position>
+            <value>Rip CD</value>
+        </button>
+    </window>
+
+    <window name="ripstatus">
+
+        <imagetype name="banner">
+            <filename>mm_rip_banner.png</filename>
+            <position>70,20</position>
+        </imagetype>
+
+        <textarea name="banner">
+            <area>150,0,500,90</area>
+            <value>Rip CD</value>
+            <font>baselarge</font>
+            <align>hcenter</align>
+        </textarea>
+
+        <imagetype name="progress_background">
+            <filename>mm_rip_background.png</filename>
+            <area>50,70,700,500</area>
+        </imagetype>
+
+        <textarea name="overall_label" from="basetextarea">
+            <area>80,110,700,40</area>
+            <value>Importing CD</value>
+        </textarea>
+
+        <textarea name="overall" from="overall_label">
+            <position>50,150</position>
+            <align>hcenter</align>
+        </textarea>
+
+        <textarea name="track_label" from="overall_label">
+            <position>80,320</position>
+            <value>Encoding Track</value>
+        </textarea>
+
+        <textarea name="track" from="overall">
+            <position>80,350</position>
+        </textarea>
+
+        <textarea name="status" from="overall">
+            <position>50,500</position>
+        </textarea>
+
+        <progressbar name="overall_progress" from="baseprogressbar">
+            <position>160,190</position>
+        </progressbar>
+
+        <textarea name="overallpct" from="basetextarea">
+            <area>350,230,100,30</area>
+            <align>hcenter</align>
+        </textarea>
+
+        <progressbar name="track_progress" from="baseprogressbar">
+            <position>160,400</position>
+        </progressbar>
+
+        <textarea name="trackpct" from="basetextarea">
+            <area>350,440,100,30</area>
+            <align>hcenter</align>
+        </textarea>
+
+    </window>

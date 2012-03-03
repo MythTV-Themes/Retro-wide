@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mythuitheme>
+
+    <window name="keygrabpopup">
+        <area>390,150,500,500</area>
+        <imagetype name="backimg">
+            <filename>mythdialogbox-background.png</filename>
+        </imagetype>
+
+        <textarea name="message" from="basetextarea">
+            <area>18,18,460,400</area>
+            <multiline>yes</multiline>
+        </textarea>
+
+        <button name="cancel" from="basebutton">
+            <position>85,420</position>
+            <value>Cancel</value>
+        </button>
+
+        <button name="ok" from="basebutton">
+            <position>265,420</position>
+            <value>Ok</value>
+        </button>
+    </window>
+
+    <window name="controls">
+
+        <textarea name="leftdesc" from="basetextarea">
+            <area>44,46,560,30</area>
+            <value>Contexts</value>
+            <align>center</align>
+        </textarea>
+
+        <shape name="leftBackgroundShadow">      
+            <area>54,96,580,460</area>
+            <type>roundbox</type>
+            <fill color="#000000" alpha="150" />
+        </shape>
+        <shape name="leftBackground">      
+            <area>34,76,580,460</area>
+            <type>roundbox</type>
+            <fill color="#0646b1" alpha="255" />
+            <line color="#FFFFFF" alpha="255" width="3" />
+        </shape>
+        <buttonlist name="leftlist" from="buttonlistRetro">
+            <area>44,86,560,440</area>
+            <showarrow>no</showarrow>
+        </buttonlist>
+
+        <shape name="rightBackgroundShadow">      
+            <area>666,96,580,460</area>
+            <type>roundbox</type>
+            <fill color="#000000" alpha="150" />
+        </shape>
+        <shape name="rightBackground">      
+            <area>646,76,580,460</area>
+            <type>roundbox</type>
+            <fill color="#0646b1" alpha="255" />
+            <line color="#FFFFFF" alpha="255" width="3" />
+        </shape>
+        <textarea name="rightdesc" from="leftdesc">
+            <area>656,46,560,30</area>
+            <value>Actions</value>
+        </textarea>
+
+        <buttonlist name="rightlist" from="leftlist">
+            <area>656,86,560,440</area>
+        </buttonlist>
+
+        <button name="action_0" from="basebutton">
+            <position>275,560</position>
+        </button>
+
+        <button name="action_1" from="action_0">
+            <position>465,560</position>
+        </button>
+
+        <button name="action_2" from="action_0">
+            <position>655,560</position>
+        </button>
+
+        <button name="action_3" from="action_0">
+            <position>845,560</position>
+        </button>
+
+        <textarea name="description" from="basetextarea">
+            <area>64,600,1152,90</area>
+            <multiline>yes</multiline>
+            <align>center</align>
+        </textarea>
+
+    </window>
+</mythuitheme>

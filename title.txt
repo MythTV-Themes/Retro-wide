@@ -1,0 +1,5 @@
+        <imagetype name="title">
+            <position>25,18</position>
+            <filename>title/title_weather.png</filename>
+        </imagetype>
+        

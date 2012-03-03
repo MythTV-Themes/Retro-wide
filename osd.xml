@@ -1,0 +1,566 @@
+<mythosdtheme>
+  <!-- 
+      Retro OSD theme
+  
+      Based on Mythtv OSD "isthmus" by gerhard aldorf
+      Renamed to Retro-OSD by Greg Estabrooks
+      Ported to MythUI by Chris Candreva <chris@westnet.com>
+  -->
+
+
+
+    <!-- The OSD menu. See base.xml for details. -->
+    <window name="MythPopupBox">
+	<fontdef name="menufont" face="DejaVu Sans">
+		<color>#FFFFFF</color>
+		<pixelsize>20</pixelsize>
+	</fontdef>
+        <area>-1,-1,540,540</area>
+
+        <imagetype name="backimg">
+            <filename>osd/popup.png</filename>
+            <area>0,0,540,540</area>
+        </imagetype>
+
+        <textarea name="messagearea">
+            <area>25,25,515,110</area>
+            <multiline>yes</multiline>
+            <align>allcenter</align>
+            <font>menufont</font>
+        </textarea>
+
+
+        <buttonlist name="list" >
+            <area>35,125,470,350</area>
+            <layout>vertical</layout>
+            <spacing>5</spacing>
+            <buttonarea>0,0,100%,97%</buttonarea>
+            <drawfrombottom>yes</drawfrombottom>
+            <showarrow>no</showarrow>
+            <wrapstyle>selection</wrapstyle>
+	    <textarea name="buttontext">
+		<font>menufont</font>
+	    </textarea>
+            <statetype name="buttonitem">
+                <area>0,0,100%,100%</area>
+                <state name="active">
+                    <area>0,0,100%,30</area>
+                    <shape name="buttonbackground">
+                    	<area>0,0,100%,100%</area>
+                    	<fill style="gradient">
+                    	    <gradient start="#38689c" end="#38689c" alpha="200" />
+                    	</fill>
+                    </shape>
+                    <textarea name="buttontext">
+                        <area>0,0,100%,30</area>
+                        <cutdown>no</cutdown>
+                        <align>allcenter</align>
+		        <font>menufont</font>
+                    </textarea>
+                <statetype name="buttoncheck">
+                    <position>91%,5</position>
+                    <state type="off">
+                        <imagetype name="checkoff">
+                            <filename>lb-check-empty.png</filename>
+                        </imagetype>
+                    </state>
+                    <state type="half">
+                        <imagetype name="checkhalf">
+                            <filename>lb-check-half.png</filename>
+                        </imagetype>
+                    </state>
+                    <state type="full">
+                        <imagetype name="checkfull">
+                            <filename>lb-check-full.png</filename>
+                        </imagetype>
+                    </state>
+                </statetype>
+                <imagetype name="buttonarrow">
+                    <position>94%,7</position>
+                    <filename>lb-arrow.png</filename>
+                </imagetype>
+                </state>
+                <state name="selectedactive" from="active">
+                    <shape name="buttonbackground">
+                    <fill style="gradient">
+                        <gradient start="#70a0d8" end="#70a0d8" alpha="255" />
+                    </fill>
+                    </shape>
+                    <textarea name="buttontext">
+                        <area>0,0,100%,30</area>
+                        <align>allcenter</align>
+		        <font>menufont</font>
+                    </textarea>
+                </state>
+                <state name="selectedinactive" from="active">
+                    <shape name="buttonbackground">
+                    <fill style="gradient">
+                        <gradient start="#52CA38" end="#349838" alpha="100" />
+                    </fill>
+                    </shape>
+                    <textarea name="buttontext">
+                        <area>0,0,100%,30</area>
+                        <align>allcenter</align>
+		        <font>menufont</font>
+                    </textarea>
+                </state>
+            </statetype>
+        </buttonlist>
+    </window>
+
+  <!-- The OSD text message/notification popup. 
+    -->  
+  <window name="osd_message">
+    <area>0,1190,1280,90</area>
+    <imagetype name="background">
+      <filename>osd/osd-alert.png</filename>
+      <position>0,0,1280,90</position>
+    </imagetype>
+    <textarea name="message_text">
+      <area>20,15,1240,60</area>
+      <font>infofont</font>
+      <multiline>yes</multiline>
+    </textarea>
+  </window>
+
+  <!-- Displays the channel number being input during a channel change. -->
+  <window name="osd_input" >
+	  <textarea name="osd_number_entry">
+		  <area>50,500,120,30</area>
+		  <font>inputfont</font>
+		  <align>allcenter</align>
+	  </textarea>
+  </window> 
+
+  <!-- The "overall status" window, which usually displays playback
+       progress. 
+    -->
+  <window name="osd_status">
+    <area>224,560,832,100</area>
+    <imagetype name="background">
+      <filename>osd/pause.png</filename>
+      <area>0,0,832,100</area>
+    </imagetype>
+    <textarea name="title">
+      <area>47,20,250,27</area>
+      <font>titlefont</font>
+    </textarea>
+    <textarea name="description">
+      <area>351,20,350,45</area>
+      <!-- font>smallfont</font -->
+        <font>timefont</font>
+      <multiline>no</multiline>
+    </textarea>
+    <clock name="clock">
+        <area>606,20,180,40</area>
+        <font>timefont</font>
+        <template>%TIME%</template>
+        <align>right,top</align>
+     </clock>
+    <progressbar name="position">
+        <area>47,55,738,16</area>
+        <layout>horizontal</layout>
+        <style>reveal</style>
+        <imagetype name="background">
+            <area>0,0,100%,100%</area>
+            <filename>osd/paused_frame.png</filename>
+        </imagetype>
+        <imagetype name="progressimage">
+            <area>0,0,100%,100%</area>
+            <filename>osd/fill_green.png</filename>
+        </imagetype>
+    </progressbar>
+  </window>
+
+  <!-- The Program Information window. 
+    -->
+  <window name="program_info" >
+	  <imagetype name="background">
+		  <filename>osd/osd_mid.png</filename>
+		  <area>0,560,1280,160</area>
+	  </imagetype>
+	  <textarea name="title">
+		  <area>200,588,900,30</area>
+		  <font>titlefont</font>
+	  </textarea>
+
+	  <textarea name="description">
+		<multiline>yes</multiline>
+		<area>200,650,900,150</area>
+		<font>infofont</font>
+		<cutdown>yes</cutdown>
+	  </textarea>
+	  <textarea name="starttime">
+		  <area>200,614,800,20</area>
+		  <font>grayfont</font>
+		  <value>%"|SUBTITLE|"  %% |TIMEDATE| %% |LENMINS| %</value>
+	  </textarea> 
+	  <imagetype name="iconpath">
+		  <area>32,584,80,80</area>
+		  <preserveaspect>true</preserveaspect>
+	  </imagetype>
+	  <clock name="clock" >
+		  <area>1100,600,100,40</area>
+		  <font>timefont</font>
+		  <align>right</align>
+		  <template>%TIME%</template>
+	  </clock>
+	  <textarea name="channum" align="center">
+		  <area>32,665,80,30</area>
+		  <align>allcenter</align>
+		  <font>channelfont</font>
+		  <value>%CHANNUM%</value>
+		  <multiline>no</multiline>
+	  </textarea>
+	  <textarea name="callsign" align="center">
+		  <multiline>no</multiline>
+		  <area>32,695,80,30</area>
+		  <align>allcenter</align>
+		  <font>callsignfont</font>
+		  <value>%CALLSIGN%</value>
+	  </textarea>
+        <statetype name="videodescrip">
+            <state name="SD">
+                <imagetype name="image">
+                    <area>1215,597,46,30</area>
+                    <filename>osd/sd.png</filename>
+                </imagetype>
+            </state>
+            <state name="HD_720_P">
+                <imagetype name="image">
+                    <area>1215,597,46,30</area>
+                    <filename>hd720.png</filename>
+                </imagetype>
+            </state>
+            <state name="HD_1080_I">
+                <imagetype name="image">
+                    <area>1215,597,46,30</area>
+                    <filename>hd1080.png</filename>
+                </imagetype>
+            </state>
+            <state name="HD_1080_P">
+                <imagetype name="image">
+                    <area>1215,597,46,30</area>
+                    <filename>hd1080.png</filename>
+                </imagetype>
+            </state>
+        </statetype>
+  </window>
+
+  <!-- The OSD window displayed during channel browsing. 
+    -->
+  <window name="browse_info" >
+
+	<area>0,560,1280,160</area>
+
+	<imagetype name="background">
+		<filename>osd/osd_mid.png</filename>
+		<area>0,0,1280,160</area>
+	</imagetype>
+	<textarea name="title">
+		<area>100,28,400,22</area>
+		<font>titlefont</font>
+	</textarea>
+	<textarea name="description">
+		<multiline>yes</multiline>
+		<area>100,78,500,74</area>
+		<font>infofont</font>
+		<template>%SUBTITLE|"|" %%DESCRIPTION%</template>
+	</textarea>
+	<textarea name="starttime">
+		<area>100,54,440,20</area>
+		<font>grayfont</font>
+		<template>(%STARTTIME% - %ENDTIME%)  %LENMINS%</template>
+	</textarea> 
+	<imagetype name="channelicon">
+		<area>32,24,80,80</area>
+	</imagetype>
+	<textarea name="time" align="right">
+		<area>1152,30,100,40</area>
+		<font>timefont</font>
+	</textarea>
+	<textarea name="channum" align="center">
+		<area>24,80,60,30</area>
+		<font>channelfont</font>
+		<template>%CHANNUM%</template>
+    	</textarea>
+	<textarea name="callsign" align="center">
+		<multiline>no</multiline>
+		<area>24,124,60,30</area>
+		<font>callsignfont</font>
+		<template>%CALLSIGN%</template>
+	</textarea> 
+  </window>
+   
+  <!-- The recording editor window 
+    -->
+  <window name="osd_program_editor">
+
+    <!-- position 0,350 -->
+    <area>0,590,1280,110</area>
+
+    <imagetype name="background">
+      <filename>osd/edit.png</filename>
+      <area>0,0,1280,110</area>
+    </imagetype>
+    <textarea name="title">
+      <area>30,20,100,27</area>
+      <font>titlefont</font>
+    </textarea>
+    <textarea name="seekamount">
+      <area>1120,20,125,40</area>
+      <font>timefont</font>
+      <align>right</align>
+    </textarea>
+    <textarea name="timedisplay">
+      <area>30,66,100,60</area>
+      <font>smallfont</font>
+    </textarea>
+    <textarea name="cutindicator" >
+      <font>smallfont</font>
+      <area>30,66,200,60</area>
+    </textarea>
+    <textarea name="framedisplay">
+      <area>1120,66,100,60</area>
+      <font>smallfont</font>
+      <align>right</align>
+    </textarea>
+            <editbar name="editbar">
+      <area>30,43,1190,16</area>
+            <imagetype name="keep">
+                <area>0,0,100%,100%</area>
+                <filename>osd/fill_green.png</filename>
+            </imagetype>
+            <imagetype name="cut">
+                <area>0,0,100%,100%</area>
+                <filename>osd/fill_red.png</filename>
+            </imagetype>
+            <shape name="position">
+                <area>-1,0,3,100%</area>
+                <fill color="#ffffff" alpha="255" />
+                <alphapulse min="180" max="255" change="4" />
+            </shape>
+            <imagetype name="cuttoright">
+              <area>0,2,6,28</area>
+              <filename>osd/cut_start.png</filename>
+            </imagetype>
+            <imagetype name="cuttoleft">
+              <area>0,2,6,28</area>
+              <filename>osd/cut_end.png</filename>
+            </imagetype>
+        </editbar>
+
+
+<!--
+    <slider name="editslider" type="edit">
+      <area>30,45,580,16</area>
+      <filename>osd/fill_green.png</filename>
+      <altfilename>osd/fill_red.png</altfilename>
+    </slider>
+    <slider name="editposition" type="position">
+	<area>30,40,580,28</area>
+      	<filename>osd/position_marker.png</filename>
+    </slider>
+    <editarrow name="left">
+      <filename>osd/cut_end.png</filename>
+      <area>30,40,580,28</area>
+    </editarrow>
+    <editarrow name="right">
+      <filename>osd/cut_start.png</filename>
+      <area>30,40,580,28</area>
+    </editarrow>
+    <textarea name="cutindicator">
+	<area>150,34,100,16</area>
+     	<font>settings</font>
+    </textarea>
+-->
+  </window>
+
+  <!-- The channel details editor 
+    -->
+  <window name="channel_editor">
+    <imagetype name="background">
+      <filename>osd/osd-channel-edit.png</filename>
+      <position>102,99</position>
+    </imagetype>
+    <textarea name="dialog_label" align="center">
+      <area>105,106,450,40</area>
+      <font>infofont</font>
+      <value>Channel Editor</value>
+    </textarea>
+    <textarea name="callsign_label" align="right">
+      <area>120,151,155,40</area>
+      <font>infofont</font>
+      <value>Callsign</value>
+    </textarea>
+    <textarea name="callsign" entry="0">
+      <area>310,151,220,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value></value>
+    </textarea>
+    <textarea name="channum_label" align="right">
+      <area>120,200,155,40</area>
+      <font>infofont</font>
+      <value>Channel #</value>
+    </textarea>
+    <textarea name="channum" entry="1">
+      <area>310,200,220,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value></value>
+    </textarea>
+    <textarea name="channame_label" align="right">
+      <area>120,246,155,40</area>
+      <font>infofont</font>
+      <value>Channel Name</value>
+    </textarea>
+    <textarea name="channame" entry="2">
+      <area>310,246,220,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value></value>
+    </textarea>
+    <textarea name="XMLTV_label" align="right">
+      <area>120,295,155,40</area>
+      <font>infofont</font>
+      <value>XMLTV ID</value>
+    </textarea>
+    <textarea name="XMLTV" entry="3">
+      <area>310,295,220,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value></value>
+    </textarea>
+    <textarea name="probe_all" entry="4" button="yes" align="center">
+      <area>120,342,185,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value>[P]robe</value>
+    </textarea>
+    <textarea name="ok" entry="5" button="yes" align="center">
+      <area>330,342,185,40</area>
+      <font>infofontgray</font>
+      <altfont>infofont</altfont>
+      <value>[O]k</value>
+    </textarea>
+  </window>
+
+
+<!-- 
+     Below are windows from the old OSD theme not in the MythUI version.
+     They are left here in case features like this come back,
+     to use as a reference.
+
+  <window name="notify_cid_info" priority="10">
+    <imagetype name="background">
+	<filename>osd/pause.png</filename>
+	<position>110,350</position>
+    </imagetype>
+    <imagetype name="watermark">
+      <filename>osd/phone.png</filename>
+      <position>108,354</position>
+    </imagetype>
+    <textarea name="notify_cid_name">
+      <area>276,376,400,20</area>
+      <font>infofont</font>
+      <multiline>no</multiline>
+    </textarea>
+    <textarea name="notify_cid_num">
+      <area>276,396,400,20</area>
+      <font>infofont</font>
+      <multiline>no</multiline>
+    </textarea>
+    <textarea name="notify_cid_dt">
+      <area>276,416,400,20</area>
+      <font>infofont</font>
+      <multiline>no</multiline>
+    </textarea>
+  </window>
+
+
+  <window name="settings">
+      <imagetype name="background"> 
+	<filename>osd/settings.png</filename> 
+	<position>30,30</position> 
+      </imagetype> 
+    <textarea name="settings">
+      <area>50,50,350,32</area>
+      <font>settings</font>
+    </textarea>
+  </window>
+
+ <window name="basedialog" priority="0" >
+   <imagetype name="background"> 
+     <filename>osd/popup.png</filename> 
+     <position>100,74</position> 
+   </imagetype> 
+   <positionimage name="selector"> 
+     <filename>osd/select.png</filename> 
+      <position>114,233</position> 
+      <position>114,263</position> 
+      <position>114,293</position> 
+      <position>114,323</position> 
+      <position>114,353</position>
+    </positionimage> 
+    <textarea name="message"> 455
+      <area>120,94,394,220</area> 
+      <font>settings</font> 
+      <multiline>yes</multiline> 
+   </textarea> 
+   <textarea name="option1"> 
+      <area>120,239,455,30</area> 
+      <font>notify</font> 
+      <altfont>grayfont</altfont> 
+   </textarea> 
+   <textarea name="option2"> 
+      <area>120,269,455,30</area> 
+      <font>notify</font> 
+      <altfont>grayfont</altfont> 
+   </textarea> 
+   <textarea name="option3"> 
+      <area>120,299,455,30</area> 
+      <font>notify</font> 
+      <altfont>grayfont</altfont> 
+   </textarea> 
+   <textarea name="option4"> 
+      <area>120,329,455,30</area> 
+      <font>notify</font> 
+      <altfont>grayfont</altfont> 
+   </textarea> 
+   <textarea name="option5">
+      <area>120,359,455,30</area>
+      <font>notify</font>
+      <altfont>grayfont</altfont>
+    </textarea>
+ </window> 
+
+  <window name="news_scroller" priority="20">
+    <imagetype name="background">
+      <filename>osd/scroll.png</filename>
+      <position>0,414</position>
+    </imagetype>
+    <textarea name="text_scroll">
+      <area>0,434,640,40</area>
+      <font>settings</font>
+      <scroller>yes</scroller>
+      <scrollmovement>-3,0</scrollmovement>
+    </textarea>
+  </window>
+
+  <window name="menu">
+    <listtreemenu name="menu">
+      <area>20,40,620,300</area>
+      <listsize>0,0,274,260</listsize>
+      <leveloffset>10</leveloffset>
+      <gradient type="unselected" start="#505050" end="#000000" alpha="150">
+      </gradient>
+      <gradient type="selected" start="#52CA38" end="#349838" alpha="255">
+      </gradient>
+      <fcnfont name="infofont" function="active"></fcnfont>
+      <fcnfont name="infofontgray" function="inactive"></fcnfont>
+    </listtreemenu>
+  </window>
+-->    
+    
+</mythosdtheme>

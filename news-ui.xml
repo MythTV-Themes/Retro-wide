@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mythuitheme>
+
+    <window name="news">
+
+        <textarea name="pagetitle" from="basetextarea">
+            <area>20,5,570,40</area>
+            <font>large</font>
+            <value>Select a feed to views</value>
+        </textarea>
+
+        <imagetype name="listbackground">
+            <filename>reclist_background.png</filename>
+            <position>0,60</position>
+        </imagetype>
+
+        <buttonlist name="siteslist" from="basebuttonlist3" >
+            <area>45,98,300,300</area>
+            <buttonarea>0,0,250,250</buttonarea>
+            <spacing>5</spacing>
+            <scrollstyle>center</scrollstyle>
+            <wrapstyle>items</wrapstyle>
+            <statetype name="buttonitem">
+                <state name="active">
+                    <textarea name="name">
+                        <area>5,0,300,30</area>
+                        <font>small_active</font>
+                        <cutdown>yes</cutdown>
+                        <align>left,vcenter</align>
+                    </textarea>
+                </state>
+                <state name="selectedinactive" from="active" >
+                	<textarea name="name">
+                	  <font>small_active</font>
+                	</textarea>
+                </state>
+                <state name="selectedactive" from="active" >
+                	<textarea name="name">
+                	  <font>small_active</font>
+                	</textarea>
+                    <imagetype name="selectbar">
+                    	<filename>rk-selectbar.png</filename>
+                    	<crop>0,0,300,29</crop>
+                    </imagetype>
+                </state>
+            </statetype>
+        </buttonlist>
+
+        <buttonlist name="articleslist" from="basebuttonlist3">
+            <area>365,44,880,350</area>
+            <buttonarea>0,30,880,290</buttonarea>
+            <wrapstyle>captive</wrapstyle>
+            <showarrow>no</showarrow>
+            <statetype name="buttonitem">
+                <state name="active">
+                    <textarea name="name">
+                        <area>0,0,880,30</area>
+                        <font>small_active</font>
+                        <cutdown>yes</cutdown>
+                        <align>left,vcenter</align>
+                    </textarea>
+                </state>
+                <state name="selectedinactive" from="active" >
+                	<textarea name="name">
+                	  <font>small_active</font>
+                	</textarea>
+                </state>
+                <state name="selectedactive" from="active" >
+                	<textarea name="name">
+                	  <font>small_active</font>
+                	</textarea>
+                    <imagetype name="selectbar">
+                    	<filename>rk-selectbar.png</filename>
+                    	<crop>0,0,880,29</crop>
+                    </imagetype>
+                </state>
+            </statetype>
+        </buttonlist>
+
+        <textarea name="nosites" from="basetextarea">
+            <area>200,100,880,150</area>
+            <align>allcenter</align>
+            <multiline>yes</multiline>
+        </textarea>
+
+        <textarea name="title" from="basetextarea">
+            <area>40,450,1020,70</area>
+            <font>large</font>
+            <multiline>yes</multiline>
+        </textarea>
+
+        <textarea name="description" from="basetextarea">
+            <area>40,515,1020,150</area>
+            <multiline>yes</multiline>
+        </textarea>
+
+        <textarea name="updated" from="basetextarea">
+            <area>40,660,1080,35</area>
+        </textarea>
+
+        <!-- imagetype name="background">
+            <filename>news-info-bg.png</filename>
+            <area>0,440,1280,280</area>
+        </imagetype -->
+
+        <imagetype name="thumbnail">
+            <area>1080,515,160,120</area>
+            <preserveaspect>true</preserveaspect>
+        </imagetype>
+
+        <imagetype name="enclosures">
+            <filename>enclosures.png</filename>
+            <position>1080,450</position>
+        </imagetype>
+
+        <imagetype name="download">
+            <filename>need-download.png</filename>
+            <position>1208,450</position>
+        </imagetype>
+
+        <imagetype name="ispodcast">
+            <filename>podcast.png</filename>
+            <position>1208,450</position>
+        </imagetype>
+
+    </window>
+
+    <window name="editor">
+
+        <textarea name="title" from="basetextarea">
+            <font>baselarge</font>
+            <area>0,50,1280,50</area>
+            <align>center,vcenter</align>
+        </textarea>
+
+        <textarea name="namelabel" from="basetextarea">
+            <area>335,150,100,30</area>
+            <align>right,vcenter</align>
+        </textarea>
+
+        <textedit name="name" from="basetextedit">
+            <position>450,140</position>
+        </textedit>
+
+        <textarea name="urllabel" from="basetextarea">
+            <area>335,250,100,30</area>
+            <align>right,vcenter</align>
+        </textarea>
+
+        <textedit name="url" from="basetextedit">
+            <position>450,240</position>
+        </textedit>
+
+        <textarea name="iconlabel" from="basetextarea">
+            <area>335,350,100,30</area>
+            <align>right,vcenter</align>
+        </textarea>
+
+        <textedit name="icon" from="basetextedit">
+            <position>450,340</position>
+        </textedit>
+
+        <checkbox name="podcast_check" from="basecheckbox">
+            <position>450,445</position>
+        </checkbox>
+
+        <textarea name="podcastlabel" from="basetextarea">
+            <area>285,445,150,30</area>
+            <align>right,vcenter</align>
+        </textarea>
+
+        <button name="cancel" from="basebutton">
+            <position>275,600</position>
+            <value>Cancel</value>
+        </button>
+
+        <button name="ok" from="basebutton">
+            <position>805,600</position>
+            <value>Ok</value>
+        </button>
+
+    </window>
+
+    <window name="config">
+
+        <buttonlist name="category" from="basebuttonlist">
+            <area>40,40,500,550</area>
+        </buttonlist>
+
+        <buttonlist name="sites" from="basebuttonlist">
+            <area>560,40,670,550</area>
+            <showarrow>no</showarrow>
+        </buttonlist>
+
+        <textarea name="context_switch" from="basetextarea">
+            <area>20,550,760,50</area>
+            <multiline>yes</multiline>
+        </textarea>
+
+        <textarea name="help" from="basetextarea">
+            <area>20,500,760,150</area>
+            <multiline>yes</multiline>
+        </textarea>
+
+    </window>
+
+</mythuitheme>
