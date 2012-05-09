@@ -111,7 +111,7 @@
   <!-- The OSD text message/notification popup. 
     -->  
   <window name="osd_message">
-    <area>0,1190,1280,90</area>
+    <area>200,45,1280,90</area>
     <imagetype name="background">
       <filename>osd/osd-alert.png</filename>
       <position>0,0,1280,90</position>
