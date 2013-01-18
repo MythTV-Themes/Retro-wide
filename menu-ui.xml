@@ -101,11 +101,7 @@
                     <filename>title/title_setup.png</filename>
                 </imagetype>
             </state>
-            <state name="TVSETUP" from="TV" >
-                <imagetype name="SETUP_TVRECPRIORITIES">
-                    <filename>title/title_tv_settings.png</filename>
-                </imagetype>
-            </state>
+            <state name="TVSETUP" from="TV" />
             <state name="SETUP_TVRECPRIORITIES">
                 <imagetype name="SETUP_TVRECPRIORITIES">
                     <filename>title/title_priority.png</filename>
