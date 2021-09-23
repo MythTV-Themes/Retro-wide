@@ -201,7 +201,7 @@
         <textarea name="description"  from="basetextarea">
             <area>40,130,1200,90</area>
             <multiline>yes</multiline>
-            <template>%LONGREPEAT%%YEARSTARS%%DESCRIPTION%</template
+            <template>%LONGREPEAT%%YEARSTARS%%DESCRIPTION%</template>
         </textarea>
 
         <textarea name="rectypestatus" from="basetextarea">
